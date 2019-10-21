@@ -1,6 +1,6 @@
 public class Rubik {
   private char[][][] sides;
-  
+
   public Rubik() {
     sides = new char[6][3][3];
     int count = 0;
@@ -61,7 +61,7 @@ public class Rubik {
     sides[3][h] = sides[2][h];
     sides[2][h] = temp;
   }
-  
+
   public void turnL(int h) {
     char[] temp = sides[1][h];
     sides[1][h] = sides[2][h];
@@ -165,7 +165,7 @@ public class Rubik {
       Rubik copy = new Rubik();
       System.arraycopy(sides,0,copy.getSides(),0,3);
       Rubik solved = new Rubik();
-        
+
       int side1 = 0;
       int largest = this.numSame(0);
       for (int i = 1; i < 6; i++) {
@@ -178,7 +178,7 @@ public class Rubik {
       while(!cube.getSides()[side1].equals(solved.getSides()[side1])) {
         int count1 = 0;
         while(!cube.getSides()[side1].equals(solved.getSides()[side1]) && count1 < 15) {
-          copy.scramble(i);     
+          copy.scramble(i);
           if (copy.numSame(side1) > (cube.numSame(side1))) {
             System.arraycopy(copy.getSides(),0,cube.getSides(),0,3);
             count1 += i;
@@ -192,7 +192,7 @@ public class Rubik {
         cube.print(side1);
         System.out.println(i);
       }
-      
+
 
       System.out.println("Solved!");
       return count;
@@ -242,18 +242,19 @@ public class Rubik {
     }
 
     public int toInt(char a) {
-      if (a == 'w')
-        return 0;
-      if (a == 'g')
-        return 1;
-      if (a == 'r')
-        return 2;
-      if (a == 'b')
-        return 3;
-      if (a == 'o')
-        return 4;
-      else
-        return 5;
-    }
-
+        switch (a) {
+            case 'w':
+                return 0;
+            case 'g':
+                return 1;
+            case 'r':
+                return 2;
+            case 'b':
+                return 3;
+            case 'o':
+                return 4;
+            default:
+                return 5;
+        }
+      }
 }

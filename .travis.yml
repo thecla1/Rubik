@@ -1,3 +1,4 @@
 language: java
-gradle assemble
-gradle check
+script:
+- gradle assemble
+- gradle check

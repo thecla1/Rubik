@@ -161,9 +161,9 @@ public class Rubik {
     public int solve() {
       int count = 0;
       Rubik cube = new Rubik();
-      System.arraycopy(sides,0,cube.getSides(),0,3);
+      System.arraycopy(sides,0,cube.getSides(),0,6);
       Rubik copy = new Rubik();
-      System.arraycopy(sides,0,copy.getSides(),0,3);
+      System.arraycopy(sides,0,copy.getSides(),0,6);
       Rubik solved = new Rubik();
 
       int side1 = 0;
@@ -175,7 +175,12 @@ public class Rubik {
         }
       }
       int i = 1;
-      while(!cube.getSides()[side1].equals(solved.getSides()[side1])) {
+      copy.scramble(1);
+      copy.print();
+      System.out.println("------------------");
+      cube.print();
+      //solve first side
+      /*while(!cube.getSides()[side1].equals(solved.getSides()[side1])) {
         int count1 = 0;
         while(!cube.getSides()[side1].equals(solved.getSides()[side1]) && count1 < 15) {
           copy.scramble(i);
@@ -191,7 +196,7 @@ public class Rubik {
         i++;
         cube.print(side1);
         System.out.println(i);
-      }
+      }*/
 
 
       System.out.println("Solved!");

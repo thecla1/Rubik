@@ -1,3 +1,6 @@
+/**
+ * @author Teddy Clarke
+ */
 public class Rubik {
   private char[][][] sides;
 
